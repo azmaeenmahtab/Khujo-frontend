@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import logo from "@/public/logo.png"
+import heroImage from "@/public/KHUJO.png"
+import CustomButton from "@/components/Button";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,9 +19,53 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
+        <div className=" relative overflow-x-hidden">
+          {/* div for gradient */}
+          <div className="absolute h-[500px] max-w-[1800px] w-full rounded-full bg-linear-to-r from-[#e7eca0]   to-[#62f7de]/80  z-[-1] top-[-200px]  blur-[90px]">
+
+          </div>
+
+          <div className="h-[500px] bg-gray-100 absolute z-[-2] bottom-0 left-0 w-full">
+            
+          </div>
+          
+          {/* ------- navbar ----- */}
+          <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
+              <Image 
+                src={logo} 
+                alt="Logo" 
+                width={100} 
+                height={40} 
+              />
+
+              <div className="flex gap-4">
+                <a href="">About</a>
+                <a href="">Our Story</a>
+                <a href="">Contact</a>
+                <a href="">Support</a>
+              </div>
+
+              <div className="flex gap-4">
+                {/* <button>Login</button>
+                <button>Report Lost Device</button> */}
+                <CustomButton text="Login" />
+                <CustomButton text="Report Lost Device" />
+              </div>
+
+
+
+          </nav>
+          {/* ------- hero text ----- */}
+
+          <div className="mx-auto items-center flex flex-col mt-[120px]">
+            <Image 
+            src={heroImage} 
+            alt="Hero Image"></Image>
+            <h4 className="text-[70px] font-medium text-[#096455]">Find Stolen Phone in Seconds</h4>
+          </div>
+          {/* <div className="white-gradient-bottom"></div> */}
+        </div>
         {children}
       </body>
     </html>
