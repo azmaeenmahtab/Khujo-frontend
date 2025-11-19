@@ -5,9 +5,10 @@ type GreenButtonProps = {
   height?: number;
   width?: number;
   bgColor?: string;
+  textColor?: string;
 };
 
-const GreenButton = ({ text, height, width, bgColor }: GreenButtonProps) => {
+const GreenButton = ({ text, height, width, bgColor, textColor }: GreenButtonProps) => {
   return (
     <>
        <Script
@@ -27,8 +28,8 @@ const GreenButton = ({ text, height, width, bgColor }: GreenButtonProps) => {
           paddingBottom: height ? `${height}px` : "10px",
         }}
       >
-        <p>{text}</p>
-        <i className="fa-solid fa-arrow-right"></i>
+        <p style={{ color: textColor || "white" }}>{text}</p>
+        <i className="fa-solid fa-arrow-right" style={{ color: textColor || "white" }}></i>
       </button>
     </>
   );

@@ -3,6 +3,7 @@ import GreenButton from "@/components/GreenButton";
 import mobile from "@/public/khujo mockup 1-Picsart.png";
 import Card from "@/components/Card";
 
+
 export default function Home() {
   return (
     <div>
@@ -41,10 +42,10 @@ export default function Home() {
 
 
           {/* card section */}
-          <div className="flex flex-col justify-center pt-[50px] pb-[60px] bg-gray-100 " >
+          <div className="flex flex-col justify-center pt-[120px] pb-[120px] bg-white " >
             <h4 className="text-6xl text-[#096455] font-semibold text-center ">How Does It Work</h4>
             
-            <div className="flex gap-[30px] justify-center items-center max-w-[1300px] mx-auto">
+            <div className="flex gap-[30px] justify-center items-center max-w-[1300px] mx-auto pt-14">
               {/* card 1 */}
               <Card title="Report from the Owner" description="We collect information for the Owner regarding the stolen phone. The information includes IMEI number, a verified police report and the original box of the device. Afterwards we authenticate the report using our Artificial Intelligence."></Card>
               {/* card 2 */}
@@ -55,6 +56,22 @@ export default function Home() {
             </div>
           </div>
 
+
+          {/* search card  */}
+          <div className="pt-[90px] pb-[180px] bg-gray-100">
+          <div className="flex justify-between items-center px-[100px] py-[60px] bg-[#096455] rounded-[20px] max-w-[1300px] mx-auto gap-[190px] ">
+            <div>
+              <h3 className="text-4xl font-bold text-white pb-2.5">Unsure if the phone you are buying is stolen or not?</h3>
+              <p className="text-white text-[25px]">Search the phone at Khujo and be rest assured</p>
+            </div>
+            <div className="pr-10">
+            <GreenButton text="Search" height={20} width={20} bgColor="white" textColor="#096455"></GreenButton>
+            </div>
+          </div>
+          </div>
+
+
+         
       
     </div>
   );
