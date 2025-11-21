@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import "./globals.css";
+import "@/app/globals.css";
 import Image from "next/image";
 import logo from "@/public/logo.png"
 import heroImage from "@/public/KHUJO.png"
@@ -8,6 +8,9 @@ import CustomButton from "@/components/Button";
 import khujo_white_logo from "@/public/KHUJO-logo-white.png";
 import Link from "next/dist/client/link";
 import { Poppins } from "next/font/google";
+import { Geist, Geist_Mono } from 'next/font/google'
+import { SignUpButton, SignInButton, ClerkProvider } from "@clerk/nextjs";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,7 +18,15 @@ const poppins = Poppins({
   variable: "--font-poppins", // Optional: for CSS variable usage
 });
 
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+})
 
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
 
 const colorPairs = [
     { from: "#e7eca0", to: "#62f7de" },
@@ -42,7 +53,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
 
   return (
     <html lang="en">
-      <body className={poppins.variable}>
+      <body className={`${poppins.className} ${geistSans.variable} ${geistMono.variable}`}>
         <div className=" relative overflow-x-hidden">
           {/* div for gradient */}
           <div
@@ -75,8 +86,22 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
               </div>
 
               <div className="flex gap-4">
-                <CustomButton text="Login" />
-                <CustomButton text="Report Lost Device" />
+                {/* <CustomButton text="Login" /> */}
+                {/* <CustomButton text="Report Lost Device" /> */}
+                <ClerkProvider>
+                <SignInButton>
+                  <button className="bg-transparent border-2 border-[#096455] text-[#096455] rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                    Login
+                  </button>
+                </SignInButton>
+                <SignUpButton>
+                  <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                    Report Lost Device
+                  </button>
+                </SignUpButton>
+                </ClerkProvider>
+
+
               </div>
 
 
