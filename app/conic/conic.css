@@ -1,0 +1,21 @@
+@keyframes rotate_gradient {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.conic_gradient {
+    background: conic-gradient(from 0deg at 50% 50%, #62f7de, #e7eca0, #62f7de, #e7eca0, #62f7de, #e7eca0, #62f7de);
+    animation: rotate_gradient 10s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes animate_conic {
+
+    0% {}
+
+}

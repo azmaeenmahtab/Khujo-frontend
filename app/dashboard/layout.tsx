@@ -10,6 +10,7 @@ import Link from "next/dist/client/link";
 import { Poppins } from "next/font/google";
 import { Geist, Geist_Mono } from 'next/font/google'
 import { SignUpButton, SignInButton, ClerkProvider } from "@clerk/nextjs";
+import ConicPage from "../conic/page";
 
 
 const poppins = Poppins({
@@ -54,16 +55,21 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
   return (
     <html lang="en">
       <body className={`${poppins.className} ${geistSans.variable} ${geistMono.variable}`}>
-        <div className=" relative overflow-x-hidden">
+
+        
+        <div className=" relative overflow-x-hidden ">
           {/* div for gradient */}
-          <div
+          {/* <div
   className="absolute h-[500px] max-w-[1800px] w-full rounded-full z-[-1] -top-60 blur-[90px] "
   style={{
     background: `linear-gradient(to right, ${color1 || "#e7eca0"}, ${color2 || "#62f7de"})`,
     opacity: 0.8,
   }}
 >
-</div>
+          </div> */}
+          <div className="absolute left-0 -top-[120px] w-full -z-1 bg-gray-100">
+          <ConicPage />
+          </div>
 
           <div className="h-[500px] bg-gray-100 absolute z-[-2] bottom-0 left-0 w-full">
             
@@ -113,11 +119,15 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
             <Image 
             src={heroImage} 
             alt="Hero Image"></Image>
-            <h4 className="text-[70px] font-medium text-[#096455]">Find Stolen Phone in Seconds</h4>
+            <h4 className="text-[70px] font-medium text-[#096455] pb-5">Find Stolen Phone in Seconds</h4>
           </div>
           
-        </div>
+        
+
+
+
         {children}
+        </div>
 
 
         {/* footer */}

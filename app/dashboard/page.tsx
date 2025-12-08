@@ -7,7 +7,7 @@ import Card from "@/components/Card";
 export default function Home() {
   return (
     <div>
-      
+         
       <div className=" flex flex-col gap-5 items-center bg-gray-100 pb-[120px]">
           <input
             type="text"
