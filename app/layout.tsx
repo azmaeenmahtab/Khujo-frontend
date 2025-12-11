@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { useEffect, useState } from "react";
 import "@/app/globals.css";
@@ -39,14 +40,11 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
   return (
     <html lang="en">
       <body className={`${poppins.className} ${geistSans.variable} ${geistMono.variable}`}>
-
-        
-        
-        {children}
-
+        <ClerkProvider>
+          {children}
+        </ClerkProvider>
 
         {/* footer */}
-        
       </body>
     </html>
   );

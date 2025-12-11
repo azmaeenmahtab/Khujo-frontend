@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { useEffect, useState } from "react";
 import "@/app/globals.css";
@@ -53,8 +54,8 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
   const { from: color1, to: color2 } = colorPairs[index];
 
   return (
-    <html lang="en">
-      <body className={`${poppins.className} ${geistSans.variable} ${geistMono.variable}`}>
+    
+      <div className={`${poppins.className} ${geistSans.variable} ${geistMono.variable}`}>
 
         
         <div className=" relative overflow-x-hidden ">
@@ -94,19 +95,17 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
               <div className="flex gap-4">
                 {/* <CustomButton text="Login" /> */}
                 {/* <CustomButton text="Report Lost Device" /> */}
-                <ClerkProvider>
-                <SignInButton>
-                  <button className="bg-transparent border-2 border-[#096455] text-[#096455] rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                   <Link href="/sign-in">
+                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
                     Login
                   </button>
-                </SignInButton>
-                <SignUpButton>
-                  <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                  </Link>
+                <Link href="/sign-up">
+                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
                     Report Lost Device
                   </button>
-                </SignUpButton>
-                </ClerkProvider>
-
+                </Link>
+ 
 
               </div>
 
@@ -151,7 +150,6 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
         </div>
 
         </div>
-      </body>
-    </html>
+      </div>
   );
 }
