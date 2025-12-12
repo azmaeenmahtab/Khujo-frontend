@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function CustomSignIn() {
   const { signIn, setActive, isLoaded } = useSignIn();
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
@@ -18,7 +18,7 @@ export default function CustomSignIn() {
 
     try {
       const result = await signIn.create({
-        identifier: email,
+        identifier: phone,
         password,
       });
 
@@ -32,9 +32,8 @@ export default function CustomSignIn() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center ">
-      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow">
-        <h2 className="text-2xl font-bold text-[#096455] mb-6">Sign In</h2>
+    <div className=" flex items-center justify-center ">
+      <div className="w-full max-w-[600px] p-8 rounded-lg ">
         
         {error && (
           <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
@@ -44,20 +43,21 @@ export default function CustomSignIn() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email
+            <label className="block font-medium text-[#096455]  mb-1">
+              Phone Number
             </label>
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="tel"
+              placeholder="Enter phone number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#096455]"
+              className="w-full px-3 py-2 border-2 border-[#096455] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#096455] text-sm"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block  font-medium text-[#096455]  mb-1">
               Password
             </label>
             <input
@@ -65,25 +65,21 @@ export default function CustomSignIn() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#096455]"
+              className="w-full px-3 py-2 border-2 border-[#096455] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#096455] text-sm"
+              placeholder="Your password"
             />
           </div>
 
           <button
             type="submit"
             disabled={!isLoaded}
-            className="w-full bg-[#096455] text-white py-2 px-4 rounded-md hover:bg-[#075544] transition disabled:opacity-50"
+            className="w-full bg-[#096455] text-white py-2 px-4 rounded-lg hover:bg-[#075544] transition disabled:opacity-50"
           >
             Sign In
           </button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-gray-600">
-          Don't have an account?{" "}
-          <a href="/sign-up" className="text-[#096455] hover:underline">
-            Sign up
-          </a>
-        </p>
+         
       </div>
     </div>
   );

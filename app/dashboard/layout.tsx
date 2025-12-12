@@ -60,21 +60,10 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
         
         <div className=" relative overflow-x-hidden ">
           {/* div for gradient */}
-          {/* <div
-  className="absolute h-[500px] max-w-[1800px] w-full rounded-full z-[-1] -top-60 blur-[90px] "
-  style={{
-    background: `linear-gradient(to right, ${color1 || "#e7eca0"}, ${color2 || "#62f7de"})`,
-    opacity: 0.8,
-  }}
->
-          </div> */}
-          <div className="absolute left-0 -top-[120px] w-full -z-1 bg-gray-100">
+          <div className="absolute  -top-[120px] w-full -z-1 bg-gray-100">
           <ConicPage />
           </div>
 
-          <div className="h-[500px] bg-gray-100 absolute z-[-2] bottom-0 left-0 w-full">
-            
-          </div>
           
           {/* ------- navbar ----- */}
           <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
@@ -112,6 +101,8 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
 
 
           </nav>
+
+
           {/* ------- hero text ----- */}
 
           <div className="mx-auto items-center flex flex-col mt-[120px]">
@@ -121,12 +112,9 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
             <h4 className="text-[70px] font-medium text-[#096455] pb-5">Find Stolen Phone in Seconds</h4>
           </div>
           
-        
-
-
 
         {children}
-        </div>
+      </div>
 
 
         {/* footer */}
