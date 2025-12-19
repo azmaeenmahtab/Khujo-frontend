@@ -20,8 +20,9 @@ const colorPairs = [
   
 
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-    return(
+const ReportDeviceLayout = ({ children }: { children: React.ReactNode}) => {
+
+    return (
         <div  className=" relative overflow-x-hidden bg-gray-100 ">
 
         <div className="absolute left-0 -top-[120px] w-full z-10  bg-gray-100">
@@ -42,14 +43,10 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               <div className="flex gap-4">
                 <Link href="/profile">
                   <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
-                    Edit Profile
+                    Dashboard
                   </button>
                 </Link>
-                <Link href="/report_device">
-                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
-                    Report Stolen Device
-                  </button>
-                </Link>
+                 
  
 
               </div>
@@ -59,10 +56,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           </nav>
 
           {/* middle logo */}
-          <div className="mx-auto items-center flex flex-col pt-20">
+          <div className="mx-auto items-center flex flex-col pt-5">
               <Image 
               src={heroImage} 
-              alt="Hero Image"></Image>
+              alt="Hero Image" className="h-[110px]"></Image>
+
+              <h3 className="text-[30px] font-bold text-[#096455] leading-tight">REPORT STOLEN DEVICE</h3>
 
           </div>
          
@@ -97,4 +96,4 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     )
 }
 
-export default DashboardLayout;
+export default ReportDeviceLayout;
