@@ -2,7 +2,7 @@ const reportDevicePage = () => {
 
   return <div>
     {/* main report box */}
-    <div className="px-22 py-10 max-w-[1000px] mx-auto bg-[#096455]/17 rounded-2xl mt-5">
+    <div className="px-22 py-10 max-w-[1000px] mx-auto bg-[#096455]/17 rounded-2xl my-5 mb-20">
 
       <p className="hidden">YOUR PROFILE MUST BE COMPLETED TO REPORT A STOLEN DEVICE</p>
 
@@ -62,15 +62,35 @@ const reportDevicePage = () => {
 
 
           </div>
-          <textarea placeholder="Help us with more accurate location to find the phone" className="bg-white h-[150px] w-full my-5 rounded-2xl p-5 placeholder:text-[14px] resize-none"></textarea>
+          <textarea placeholder="Help us with more accurate location to find the phone" className="bg-white h-[100px] w-full my-5 rounded-2xl p-5 placeholder:text-[14px] resize-none"></textarea>
 
         </div>
 
         {/* image div */}
-        <div></div>
+        <div className="flex items-center justify-between gap-20">
+          <div className="w-full">
+            <label  className="text-[16px] text-[#096455] font-medium">Upload Image of backside of your phone box
+(optional but recommended)</label>
+            <input type="file" className=" block mt-2 file:border-2 file:border-[#096455] file:rounded-2xl file:bg-white file:px-5 file:py-2 file:mr-4 file:cursor-pointer bg-white py-1 px-1  rounded-2xl max-w-[400px] w-full file:text-[14px] text-[14px] file:text-gray-500 text-gray-500"/>
+          </div>
+          <div className="w-full">
+            <label  className="text-[16px] text-[#096455] font-medium">Upload Image of the General Diary(GD) from the reported police station</label>
+            <input type="file" className="block mt-2 file:border-2 file:border-[#096455] file:rounded-2xl file:bg-white file:px-5 file:py-2 file:mr-4 file:cursor-pointer bg-white py-1 px-1  rounded-2xl max-w-[400px] w-full file:text-[14px] text-[14px] file:text-gray-500 text-gray-500"/>
+          </div>
+        </div>
 
         {/* name and id div */}
-        <div></div>
+        <div className="flex items-center justify-between mt-5 mb-10 gap-20">
+          <div className="flex flex-col flex-1 ">
+            <label className="text-[18px] text-[#096455] font-medium">Device Name</label>
+            <input type="text" placeholder="Enter Device Name" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
+          </div>
+
+          <div className="flex flex-col flex-1">
+            <label className="text-[18px] text-[#096455] font-medium">Transaction ID</label>
+            <input type="text" placeholder="Enter Transaction ID" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
+          </div>
+        </div>
 
         <button className="bg-[#096455] text-white rounded-xl h-12 px-6 mx-auto block mt-5 hover:bg-[#064d3f] ease-in-out duration-300 ">SUBMIT REPORT</button>
     </div>
