@@ -4,7 +4,7 @@ const reportDevicePage = () => {
     {/* main report box */}
     <div className="px-22 py-10 max-w-[1000px] mx-auto bg-[#096455]/17 rounded-2xl my-5 mb-20">
 
-      <p className="hidden">YOUR PROFILE MUST BE COMPLETED TO REPORT A STOLEN DEVICE</p>
+      <p className="text-center pb-10 text-red-700 text-[18px] ">! YOUR PROFILE MUST BE COMPLETED TO REPORT A STOLEN DEVICE !</p>
 
         {/* imei box */}
         <div className="flex items-center justify-between gap-5">
