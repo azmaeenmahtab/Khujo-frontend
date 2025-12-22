@@ -1,6 +1,42 @@
+import Image from "next/image";
+import logo from "@/public/logo.png"
+import heroImage from "@/public/KHUJO.png"
+import Link from "next/dist/client/link";
 const reportDevicePage = () => {
 
   return <div>
+          <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
+              <Image 
+                src={logo} 
+                alt="Logo" 
+                width={100} 
+                height={40} 
+              />
+
+              <div className="flex gap-4">
+                <Link href="/dashboard">
+                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
+                    Dashboard
+                  </button>
+                </Link>
+                 
+ 
+
+              </div>
+
+
+
+          </nav>
+
+          {/* middle logo */}
+          <div className="mx-auto items-center flex flex-col pt-5">
+              <Image 
+              src={heroImage} 
+              alt="Hero Image" className="h-[110px]"></Image>
+
+              <h3 className="text-[30px] font-bold text-[#096455] leading-tight">REPORT STOLEN DEVICE</h3>
+
+          </div>
     {/* main report box */}
     <div className="px-22 py-10 max-w-[1000px] mx-auto bg-[#096455]/17 rounded-2xl my-5 mb-20">
 

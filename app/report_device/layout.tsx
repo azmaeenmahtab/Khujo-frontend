@@ -32,39 +32,8 @@ const ReportDeviceLayout = ({ children }: { children: React.ReactNode}) => {
         <div className="min-h-screen relative z-20 ">
 
           {/* nav */}
-          <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
-              <Image 
-                src={logo} 
-                alt="Logo" 
-                width={100} 
-                height={40} 
-              />
-
-              <div className="flex gap-4">
-                <Link href="/profile">
-                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
-                    Dashboard
-                  </button>
-                </Link>
-                 
- 
-
-              </div>
-
-
-
-          </nav>
-
-          {/* middle logo */}
-          <div className="mx-auto items-center flex flex-col pt-5">
-              <Image 
-              src={heroImage} 
-              alt="Hero Image" className="h-[110px]"></Image>
-
-              <h3 className="text-[30px] font-bold text-[#096455] leading-tight">REPORT STOLEN DEVICE</h3>
-
-          </div>
-         
+          
+         {/* this part is transfered to page.tsx of report_device */}
 
           <div className="bg-transparent ">
           {children}
