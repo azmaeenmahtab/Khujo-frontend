@@ -1,3 +1,8 @@
+import Image from "next/image";
+import logo from "@/public/logo.png"
+import heroImage from "@/public/KHUJO.png"
+import Link from "next/dist/client/link";
+
 const reports = [
     {
         deviceName: "iPhone 12",
@@ -24,6 +29,42 @@ const reports = [
 const DashboardPage = () => {
     return (
         <div className="">
+            <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
+              <Image 
+                src={logo} 
+                alt="Logo" 
+                width={100} 
+                height={40} 
+              />
+
+              <div className="flex gap-4">
+                <Link href="/dashboard/profile">
+                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
+                    Edit Profile
+                  </button>
+                </Link>
+                <Link href="/report_device">
+                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
+                    Report Stolen Device
+                  </button>
+                </Link>
+ 
+
+              </div>
+
+
+
+          </nav>
+
+          {/* middle logo */}
+          <div className="mx-auto items-center flex flex-col pt-20">
+              <Image 
+              src={heroImage} 
+              alt="Hero Image"></Image>
+
+          </div>
+
+          {/* this top part is extracted from layout.tsx of dashboard */}
              <h3 className="text-[#096455] text-4xl font-bold  text-center">Hello <span>Shakibul Islam</span></h3>
 
 

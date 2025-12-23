@@ -1,11 +1,12 @@
 import Image from "next/image";
-import logo from "@/public/logo.png"
 import heroImage from "@/public/KHUJO.png"
-import Link from "next/dist/client/link";
-const reportDevicePage = () => {
+import Link from "next/dist/client/link"
+import logo from "@/public/logo.png"
+const ProfilePage = () => {
 
-  return <div>
-          <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
+    return <div>
+        <div>
+            <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
               <Image 
                 src={logo} 
                 alt="Logo" 
@@ -26,36 +27,45 @@ const reportDevicePage = () => {
 
 
 
-          </nav>
-
-          {/* middle logo */}
-          <div className="mx-auto items-center flex flex-col pt-5">
+            </nav>
+            <div className="mx-auto items-center flex flex-col  ">
               <Image 
               src={heroImage} 
-              alt="Hero Image" className="h-[110px]"></Image>
+              alt="Hero Image"></Image>
+            </div>
 
-              <h3 className="text-[30px] font-bold text-[#096455] leading-tight">REPORT STOLEN DEVICE</h3>
 
-          </div>
-    {/* main report box */}
-    <div className="px-22 py-10 max-w-[1000px] mx-auto bg-[#096455]/17 rounded-2xl my-5 mb-20">
+            <div className="px-22 py-10 max-w-[1000px] mx-auto bg-[#096455]/17 rounded-2xl my-5 mb-20">
 
-      <p className="text-center pb-10 text-red-700 text-[18px] ">! YOUR PROFILE MUST BE COMPLETED TO REPORT A STOLEN DEVICE !</p>
+       
 
-        {/* imei box */}
+        {/* name box */}
         <div className="flex items-center justify-between gap-5">
           <div className="flex flex-col flex-1 ">
-            <label className="text-[20px] text-[#096455] font-medium">IMEI Number 1</label>
-            <input type="text" placeholder="Enter IMEI Number 1" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
+            <label className="text-[20px] text-[#096455] font-semibold">First Name</label>
+            <input type="text" placeholder="Enter First Name" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
           </div>
 
           <div className="flex flex-col flex-1">
-            <label className="text-[20px] text-[#096455] font-medium">IMEI Number 2</label>
-            <input type="text" placeholder="Enter IMEI Number 2" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
+            <label className="text-[20px] text-[#096455] font-semibold">Last Name</label>
+            <input type="text" placeholder="Enter Last Name" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
           </div>
         </div>
 
-        <p className="text-2xl font-medium text-[#096455] text-center my-5">WHERE WAS THE PHONE STOLEN</p>
+        {/* phone and email div */}
+        <div className="flex items-center justify-between gap-5 mt-4 mb-6" >
+          <div className="flex flex-col flex-1 ">
+            <label className="text-[20px] text-[#096455] font-semibold">Phone Number</label>
+            <input type="text" placeholder="Enter Phone Number" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
+          </div>
+
+          <div className="flex flex-col flex-1">
+            <label className="text-[20px] text-[#096455] font-semibold">Email</label>
+            <input type="text" placeholder="Enter Email" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
+          </div>
+        </div>
+
+        <p className="text-2xl font-semibold text-[#096455] text-center my-5">HOME ADDRESS</p>
         {/* info div */}
         <div>
           {/* locaiton div */}
@@ -98,12 +108,12 @@ const reportDevicePage = () => {
 
 
           </div>
-          <textarea placeholder="Help us with more accurate location to find the phone" className="bg-white h-[100px] w-full my-5 rounded-2xl p-5 placeholder:text-[14px] resize-none"></textarea>
+          <textarea placeholder="House number, building name, street number, area etc" className="bg-white h-[100px] w-full my-5 rounded-2xl p-5 placeholder:text-[14px] resize-none"></textarea>
 
         </div>
 
         {/* image div */}
-        <div className="flex items-center justify-between gap-20">
+        {/* <div className="flex items-center justify-between gap-20">
           <div className="w-full">
             <label  className="text-[16px] text-[#096455] font-medium">Upload Image of backside of your phone box
 (optional but recommended)</label>
@@ -113,10 +123,10 @@ const reportDevicePage = () => {
             <label  className="text-[16px] text-[#096455] font-medium">Upload Image of the General Diary(GD) from the reported police station</label>
             <input type="file" className="block mt-2 file:border-2 file:border-[#096455] file:rounded-2xl file:bg-white file:px-5 file:py-2 file:mr-4 file:cursor-pointer bg-white py-1 px-1  rounded-2xl max-w-[400px] w-full file:text-[14px] text-[14px] file:text-gray-500 text-gray-500"/>
           </div>
-        </div>
+        </div> */}
 
         {/* name and id div */}
-        <div className="flex items-center justify-between mt-5 mb-10 gap-20">
+        {/* <div className="flex items-center justify-between mt-5 mb-10 gap-20">
           <div className="flex flex-col flex-1 ">
             <label className="text-[18px] text-[#096455] font-medium">Device Name</label>
             <input type="text" placeholder="Enter Device Name" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
@@ -126,12 +136,13 @@ const reportDevicePage = () => {
             <label className="text-[18px] text-[#096455] font-medium">Transaction ID</label>
             <input type="text" placeholder="Enter Transaction ID" className="bg-white rounded-2xl py-2 px-4 placeholder:text-[14px]"/>
           </div>
-        </div>
+        </div> */}
         <Link href="/report_device/report_completion">
-        <button className="bg-[#096455] text-white rounded-xl h-12 px-6 mx-auto block mt-5 hover:bg-[#064d3f] ease-in-out duration-300 cursor-pointer">SUBMIT REPORT</button>
+        <button className="bg-[#096455] text-white rounded-xl h-12 px-6 mx-auto block mt-5 hover:bg-[#064d3f] ease-in-out duration-300 cursor-pointer">Update Profile</button>
         </Link>
     </div>
-  </div>;
+        </div>
+    </div>;
 }
 
-export default reportDevicePage; 
+export default ProfilePage;
