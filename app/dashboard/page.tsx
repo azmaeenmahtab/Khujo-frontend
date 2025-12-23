@@ -57,7 +57,7 @@ const DashboardPage = () => {
           </nav>
 
           {/* middle logo */}
-          <div className="mx-auto items-center flex flex-col pt-20">
+          <div className="mx-auto items-center flex flex-col pt-10">
               <Image 
               src={heroImage} 
               alt="Hero Image"></Image>

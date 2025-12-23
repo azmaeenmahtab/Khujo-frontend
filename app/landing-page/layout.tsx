@@ -58,62 +58,19 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
       <div className={`${poppins.className} ${geistSans.variable} ${geistMono.variable}`}>
 
         
-        <div className=" relative overflow-x-hidden ">
+        <div className=" relative overflow-x-hidden bg-gray-100">
           {/* div for gradient */}
-          <div className="absolute  -top-[120px] w-full -z-1 bg-gray-100">
+          <div className="absolute  -top-[120px] w-full z-10 bg-gray-100">
           <ConicPage />
           </div>
 
           
           {/* ------- navbar ----- */}
-          <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
-              <Image 
-                src={logo} 
-                alt="Logo" 
-                width={100} 
-                height={40} 
-              />
-
-              <div className="flex gap-4">
-                <a href="">About</a>
-                <a href="">Our Story</a>
-                <a href="">Contact</a>
-                <a href="">Support</a>
-              </div>
-
-              <div className="flex gap-4">
-                {/* <CustomButton text="Login" /> */}
-                {/* <CustomButton text="Report Lost Device" /> */}
-                   <Link href="/sign-in">
-                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
-                    Login
-                  </button>
-                  </Link>
-                <Link href="/sign-up">
-                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
-                    Report Lost Device
-                  </button>
-                </Link>
- 
-
-              </div>
-
-
-
-          </nav>
-
-
-          {/* ------- hero text ----- */}
-
-          <div className="mx-auto items-center flex flex-col mt-[120px]">
-            <Image 
-            src={heroImage} 
-            alt="Hero Image"></Image>
-            <h4 className="text-[70px] font-medium text-[#096455] pb-5">Find Stolen Phone in Seconds</h4>
-          </div>
           
+      <div className="min-h-screen relative z-20 ">
 
         {children}
+      </div>
       </div>
 
 

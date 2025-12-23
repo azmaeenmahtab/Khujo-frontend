@@ -2,15 +2,63 @@ import Image from "next/image";
 import GreenButton from "@/components/GreenButton";
 import mobile from "@/public/khujo mockup 1-Picsart.png";
 import Card from "@/components/Card";
+import Link from "next/dist/client/link";
+import logo from "@/public/logo.png"
+import heroImage from "@/public/KHUJO.png"
 
 
 export default function Home() {
   return (
     <div>
-         
+      <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
+              <Image 
+                src={logo} 
+                alt="Logo" 
+                width={100} 
+                height={40} 
+              />
+
+              <div className="flex gap-4">
+                <a href="">About</a>
+                <a href="">Our Story</a>
+                <a href="">Contact</a>
+                <a href="">Support</a>
+              </div>
+
+              <div className="flex gap-4">
+                {/* <CustomButton text="Login" /> */}
+                {/* <CustomButton text="Report Lost Device" /> */}
+                   <Link href="/sign-in">
+                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
+                    Login
+                  </button>
+                  </Link>
+                <Link href="/sign-up">
+                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
+                    Report Lost Device
+                  </button>
+                </Link>
+ 
+
+              </div>
+
+
+
+      </nav>
+
+
+      {/* ------- hero text ----- */}
+
+      <div className="mx-auto items-center flex flex-col mt-[120px]">
+        <Image 
+        src={heroImage} 
+        alt="Hero Image"></Image>
+        <h4 className="text-[70px] font-medium text-[#096455] pb-5">Find Stolen Phone in Seconds</h4>
+      </div>
+
       <div className=" flex flex-col gap-5 items-center bg-gray-100 pb-[120px]">
           <input
-            type="text"
+            type="text "
             placeholder="Search with IMEI"
             style={{
               padding: "0.5rem 1rem",
