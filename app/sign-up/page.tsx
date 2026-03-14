@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SignUp() {
-  const { signIn, setActive, isLoaded } = useSignIn();
+  const {signIn, setActive, isLoaded } = useSignIn();
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

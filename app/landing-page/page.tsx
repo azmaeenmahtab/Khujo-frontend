@@ -38,12 +38,7 @@ export default function Home() {
                     Report Lost Device
                   </button>
                 </Link>
- 
-
               </div>
-
-
-
       </nav>
 
 
