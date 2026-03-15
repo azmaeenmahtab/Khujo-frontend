@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import { useSignIn } from "@clerk/nextjs";
 import { useState } from "react";
@@ -6,28 +5,50 @@ import { useRouter } from "next/navigation";
 
 export default function CustomSignIn() {
   const { signIn, setActive, isLoaded } = useSignIn();
-  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
+
+  const getErrorMessage = (err: unknown) => {
+    if (typeof err === "object" && err !== null && "errors" in err) {
+      const clerkErrors = (err as { errors?: Array<{ longMessage?: string; message?: string }> }).errors;
+      if (Array.isArray(clerkErrors) && clerkErrors.length > 0) {
+        return clerkErrors[0].longMessage || clerkErrors[0].message || "Something went wrong.";
+      }
+    }
+    if (err instanceof Error) {
+      return err.message;
+    }
+    return "Failed to sign in. Please try again.";
+  };
 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isLoaded) return;
 
+    setError("");
+    setIsSubmitting(true);
+
     try {
       const result = await signIn.create({
-        identifier: phone,
+        identifier: email,
         password,
       });
 
       if (result.status === "complete") {
         await setActive({ session: result.createdSessionId });
+        console.log(result);
         router.push("/dashboard");
+      } else {
+        setError("Additional verification is required to complete sign in.");
       }
     } catch (err) {
-      setError( (err as Error).message || "Failed to sign in. Please try again." );
+      setError(getErrorMessage(err));
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -44,13 +65,13 @@ export default function CustomSignIn() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block font-medium text-[#096455]  mb-1">
-              Phone Number
+              Email Address
             </label>
             <input
-              type="tel"
-              placeholder="Enter phone number"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-3 py-2 border-2 border-[#096455] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#096455] text-sm"
             />
@@ -72,10 +93,10 @@ export default function CustomSignIn() {
 
           <button
             type="submit"
-            disabled={!isLoaded}
+            disabled={!isLoaded || isSubmitting}
             className="w-full bg-[#096455] text-white py-2 px-4 rounded-lg hover:bg-[#075544] transition disabled:opacity-50"
           >
-            Sign In
+            {isSubmitting ? "Signing in..." : "Sign In"}
           </button>
         </form>
 

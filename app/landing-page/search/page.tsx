@@ -18,7 +18,7 @@ const SearchPage = () => {
                 />
 
                 <div className="flex gap-4">
-                    <Link href="/dashboard/profile">
+                    <Link href="/sign-in">
                         <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
                             Login
                         </button>
