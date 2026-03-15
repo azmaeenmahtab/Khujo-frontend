@@ -3,6 +3,7 @@ import GreenButton from "@/components/GreenButton";
 import heroImage from "@/public/KHUJO.png"
 import Link from "next/dist/client/link";
 import logo from "@/public/logo.png"
+import FoundSection from "@/components/FoundSection";
 
 const SearchPage = () => {
     return (
@@ -61,8 +62,8 @@ const SearchPage = () => {
 
             {/* if not found component */}
             <div className="w-full px-4 pb-16 flex justify-center ">
-                <div className="w-full max-w-[760px] rounded-2xl overflow-hidden border border-[#cfe5df] shadow-[0_16px_40px_rgba(9,100,85,0.14)] bg-[#D3E7E4]">
-                    <div className="bg-linear-to-r from-[#096455] to-[#0c7a67] px-6 py-7 text-center text-white border-b rounded-b-3xl">
+                <div className="w-full max-w-[760px] rounded-3xl overflow-hidden border border-[#cfe5df] shadow-[0_16px_40px_rgba(9,100,85,0.14)] bg-[#D3E7E4]">
+                    <div className="bg-[#096455] px-6 py-7 text-center text-white border-b rounded-b-3xl">
                         <div className="mx-auto mb-3 h-12 w-12 rounded-full border border-white/40 bg-white/10 flex items-center justify-center">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +102,7 @@ const SearchPage = () => {
 
             {/* if found component */}
             <div>
-
+                <FoundSection />
             </div>
         </>
     )

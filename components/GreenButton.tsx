@@ -1,3 +1,5 @@
+"use client";
+
 import Script from "next/script";
 
 type GreenButtonProps = {
@@ -6,9 +8,10 @@ type GreenButtonProps = {
   width?: number;
   bgColor?: string;
   textColor?: string;
+  onClick?: () => void;
 };
 
-const GreenButton = ({ text, height, width, bgColor, textColor }: GreenButtonProps) => {
+const GreenButton = ({ text, height, width, bgColor, textColor, onClick }: GreenButtonProps) => {
   return (
     <>
        <Script
@@ -19,7 +22,9 @@ const GreenButton = ({ text, height, width, bgColor, textColor }: GreenButtonPro
 
 
       <button
-        className="text-white rounded-xl transition duration-300 flex gap-5 items-center"
+        type="button"
+        onClick={onClick}
+        className="text-white rounded-xl transition duration-300 flex gap-5 items-center cursor-pointer hover:bg-[#075f52]"
         style={{
           backgroundColor: bgColor || "#096455",
           paddingLeft: width ? `${width}px` : "20px",

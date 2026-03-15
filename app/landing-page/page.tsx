@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import GreenButton from "@/components/GreenButton";
 import mobile from "@/public/khujo mockup 1-Picsart.png";
@@ -5,12 +7,16 @@ import Card from "@/components/Card";
 import Link from "next/dist/client/link";
 import logo from "@/public/logo.png"
 import heroImage from "@/public/KHUJO.png"
+import { useRouter } from "next/navigation";
+
 
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div>
-      <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">
+      <nav className="relative flex items-center px-10 text-[#096455] text-[15px] font-semibold pt-5">
               <Image 
                 src={logo} 
                 alt="Logo" 
@@ -18,14 +24,14 @@ export default function Home() {
                 height={40} 
               />
 
-              <div className="flex gap-4">
+              <div className="absolute left-1/2 -translate-x-1/2 flex gap-10">
                 <a href="">About</a>
                 <a href="">Our Story</a>
                 <a href="">Contact</a>
                 <a href="">Support</a>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 ml-auto">
                 {/* <CustomButton text="Login" /> */}
                 {/* <CustomButton text="Report Lost Device" /> */}
                    <Link href="/sign-in">
@@ -44,14 +50,14 @@ export default function Home() {
 
       {/* ------- hero text ----- */}
 
-      <div className="mx-auto items-center flex flex-col mt-[120px]">
+      <div className="mx-auto items-center flex flex-col mt-[60px] bg-transparent">
         <Image 
         src={heroImage} 
         alt="Hero Image"></Image>
         <h4 className="text-[70px] font-medium text-[#096455] pb-5">Find Stolen Phone in Seconds</h4>
       </div>
 
-      <div className=" flex flex-col gap-5 items-center bg-gray-100 pb-[120px]">
+      <div className=" flex flex-col gap-5 items-center bg-transparent pb-[120px]">
           <input
             type="text "
             placeholder="Search with IMEI"
@@ -65,12 +71,28 @@ export default function Home() {
             className="text-black max-w-[600px] mx-auto bg-white shadow-2xl " 
           />
 
-          <div className="flex flex-col items-center gap-4 font-medium">
-            <p className="text-[#096455]">Total Reported Device: <span>1930</span></p>
-            <p className="text-[#096455]">Recovered Device: <span>1020</span></p>
+          <div className="w-full max-w-[360px] rounded-2xl border border-white/40 bg-white/25 backdrop-blur-xl shadow-[0_10px_35px_rgba(9,100,85,0.15)] px-5 py-4">
+            <p className="text-[#096455] text-center font-semibold text-sm tracking-[0.08em] uppercase mb-3">Live Recovery Stats</p>
+            <div className="space-y-2 text-[#096455]">
+              <p className="flex items-center justify-between rounded-xl bg-white/50 px-3 py-2 text-base font-medium">
+                <span>Total Reported Device</span>
+                <span className="font-bold">1930</span>
+              </p>
+              <p className="flex items-center justify-between rounded-xl bg-white/50 px-3 py-2 text-base font-medium">
+                <span>Recovered Device</span>
+                <span className="font-bold">1020</span>
+              </p>
+            </div>
           </div>
 
-          <GreenButton text="Search" height={20} width={20}></GreenButton>
+          <GreenButton
+            text="Search"
+            height={20}
+            width={20}
+            onClick={() => {
+              router.push("/landing-page/search");
+            }}
+          ></GreenButton>
       </div>
             {/* hero section */}
           <div className="flex flex-col justify-center pl-[110px] pt-[50px] pb-[60px] bg-gray-100" >
@@ -108,14 +130,14 @@ export default function Home() {
               <p className="text-white text-[25px]">Search the phone at Khujo and be rest assured</p>
             </div>
             <div className="pr-10">
-            <GreenButton text="Search" height={20} width={20} bgColor="white" textColor="#096455"></GreenButton>
+
+            <GreenButton text="Search" height={20} width={20} bgColor="white" textColor="#096455" onClick={() => {
+              router.push("/landing-page/search");
+            }}></GreenButton>
             </div>
           </div>
           </div>
 
-
-         
-      
     </div>
   );
 }
