@@ -4,8 +4,7 @@ import Image from "next/image";
 import GreenButton from "@/components/GreenButton";
 import mobile from "@/public/khujo mockup 1-Picsart.png";
 import Card from "@/components/Card";
-import Link from "next/dist/client/link";
-import logo from "@/public/logo.png"
+import Navbar from "@/components/Navbar";
 import heroImage from "@/public/KHUJO.png"
 import { useRouter } from "next/navigation";
 
@@ -16,36 +15,7 @@ export default function Home() {
 
   return (
     <div>
-      <nav className="relative flex items-center px-10 text-[#096455] text-[15px] font-semibold pt-5">
-              <Image 
-                src={logo} 
-                alt="Logo" 
-                width={100} 
-                height={40} 
-              />
-
-              <div className="absolute left-1/2 -translate-x-1/2 flex gap-10">
-                <a href="">About</a>
-                <a href="">Our Story</a>
-                <a href="">Contact</a>
-                <a href="">Support</a>
-              </div>
-
-              <div className="flex gap-4 ml-auto">
-                {/* <CustomButton text="Login" /> */}
-                {/* <CustomButton text="Report Lost Device" /> */}
-                   <Link href="/sign-in">
-                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
-                    Login
-                  </button>
-                  </Link>
-                <Link href="/sign-up">
-                  <button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
-                    Report Lost Device
-                  </button>
-                </Link>
-              </div>
-      </nav>
+      <Navbar />
 
 
       {/* ------- hero text ----- */}

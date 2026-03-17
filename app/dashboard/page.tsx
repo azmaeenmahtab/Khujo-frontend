@@ -2,6 +2,7 @@ import Image from "next/image";
 import logo from "@/public/logo.png"
 import heroImage from "@/public/KHUJO.png"
 import Link from "next/dist/client/link";
+import { auth, currentUser } from "@clerk/nextjs/server";
 
 const reports = [
     {
@@ -26,7 +27,10 @@ const reports = [
     },
 ]
 
+
 const DashboardPage = () => {
+    const user = currentUser();
+    console.log(user);
     return (
         <div className="">
             <nav className="flex justify-between items-center px-10   text-[#096455] text-[15px] font-semibold pt-5 ">

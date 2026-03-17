@@ -3,14 +3,10 @@
 import { useEffect, useState } from "react";
 import "@/app/globals.css";
 import Image from "next/image";
-import logo from "@/public/logo.png"
-import heroImage from "@/public/KHUJO.png"
-import CustomButton from "@/components/Button";
 import khujo_white_logo from "@/public/KHUJO-logo-white.png";
 import Link from "next/dist/client/link";
 import { Poppins } from "next/font/google";
 import { Geist, Geist_Mono } from 'next/font/google'
-import { SignUpButton, SignInButton, ClerkProvider } from "@clerk/nextjs";
 import ConicPage from "../conic/page";
 
 
@@ -63,8 +59,6 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
           <div className="absolute  -top-[120px] w-full z-10 bg-gray-100">
           <ConicPage />
           </div>
-
-          
           {/* ------- navbar ----- */}
           
       <div className="min-h-screen relative z-20 ">
