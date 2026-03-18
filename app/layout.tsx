@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-"use client";
-import { useEffect, useState } from "react";
+import type { Metadata } from "next";
 import "@/app/globals.css";
 import Image from "next/image";
 import logo from "@/public/logo.png"
@@ -12,6 +11,15 @@ import { Poppins } from "next/font/google";
 import { Geist, Geist_Mono } from 'next/font/google'
 import { SignUpButton, SignInButton, ClerkProvider } from "@clerk/nextjs";
 import ConicPage from "./conic/page";
+
+export const metadata: Metadata = {
+  title: "Khujo - Mobile Theft Syndicate Security System",
+  icons: {
+    icon: "/khujoapplogo.png",
+    shortcut: "/khujoapplogo.png",
+    apple: "/khujoapplogo.png",
+  },
+};
 
 
 const poppins = Poppins({
