@@ -24,17 +24,26 @@ export default function Navbar() {
 							Login
 						</button>
 					</Link>
-				</SignedOut>
-				<SignedIn>
-					<div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
-						<UserButton afterSignOutUrl="/" />
-					</div>
-				</SignedIn>
-				<Link href="/sign-up">
+					<Link href="/sign-up">
 					<button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
 						Report Lost Device
 					</button>
 				</Link>
+				</SignedOut>
+				<SignedIn>
+					<Link href="/sign-up">
+					<button className="bg-white  text-[#096455] rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#096455] hover:text-white ease-in-out duration-300  ">
+						Report Lost Device
+					</button>
+				</Link>
+				<Link href="/dashboard/profile">
+					<div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
+						<Image src="/user.png" alt="User Avatar" width={30} height={30} className="rounded-full" />
+					</div>
+				</Link>	
+				</SignedIn>
+				
+				
 			</div>
 		</nav>
 	);
