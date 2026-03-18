@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/dist/client/link"
 import logo from "@/public/logo.png"
 import { currentUser } from "@clerk/nextjs/server";
+import { SignOutButton } from "@clerk/nextjs";
 
 const ProfilePage = async () => {
   const user = await currentUser();
@@ -37,6 +38,11 @@ const ProfilePage = async () => {
               Dashboard
             </button>
           </Link>
+          <SignOutButton>
+            <button className="bg-[#096455] text-white rounded-xl h-10 sm:h-12 px-4 sm:px-5 cursor-pointer hover:bg-[#064d3f] ease-in-out duration-300">
+              Logout
+            </button>
+          </SignOutButton>
         </div>
       </nav>
 
@@ -50,7 +56,7 @@ const ProfilePage = async () => {
 
 
         <div className="mb-8 flex flex-col items-center">
-          <div className="rounded-full bg-gradient-to-br from-white/95 via-[#D9F3EE] to-[#A6DCCD] p-[3px] shadow-[0_16px_40px_rgba(9,100,85,0.28)]">
+          <div className="rounded-full bg-linear-to-br from-white/95 via-[#D9F3EE] to-[#A6DCCD] p-[3px] shadow-[0_16px_40px_rgba(9,100,85,0.28)]">
             <div className="relative h-28 w-28 overflow-hidden rounded-full border border-white/70 bg-white/75 backdrop-blur-sm">
               {profileImageUrl ? (
                 <div
@@ -62,7 +68,7 @@ const ProfilePage = async () => {
                   {profileInitials}
                 </div>
               )}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/35 via-transparent to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-white/35 via-transparent to-transparent" />
             </div>
           </div>
         </div>
@@ -170,6 +176,7 @@ const ProfilePage = async () => {
         <Link href="/report_device/report_completion">
           <button className="bg-[#096455] text-white rounded-xl h-12 px-6 mx-auto block mt-5 hover:bg-[#064d3f] ease-in-out duration-300 cursor-pointer">Update Profile</button>
         </Link>
+        
       </div>
     </div>
   </div>;
