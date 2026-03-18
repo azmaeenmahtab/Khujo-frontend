@@ -54,7 +54,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
         </div>
         </div>
         {/* footer */}
-        <div className="bg-[#002B24] text-white">
+        {/* <div className="bg-[#002B24] text-white">
         <div className="flex justify-between max-w-[1300px] mx-auto items-center  pt-20 pb-[100px] pr-[60px]  ">
           <div className="flex flex-col text-left max-w-[680px]">
             <Image src={khujo_white_logo} alt="Khujo White Logo"></Image>
@@ -62,7 +62,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
           </div>
 
           {/* links */}
-          <div>
+          {/* <div>
             <h4 className="font-semibold text-2xl pt-2.5 pb-3.5">Quick Links</h4>
             <ul className="space-y-5">
               <li><Link href="/">Home</Link></li>
@@ -70,10 +70,10 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
               <li><Link href="/report-device">Report Device</Link></li>
               <li><Link href="/login">Login</Link></li>
             </ul>
-          </div>
-        </div>
+          </div> */}
+        {/* </div>*/}
 
-        </div>
+        {/* </div> */}
       </body>
     </html>
   );

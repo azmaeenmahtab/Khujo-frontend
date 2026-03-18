@@ -9,11 +9,7 @@ export default function CustomSignIn() {
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
-  const [copiedField, setCopiedField] = useState<"email" | "password" | null>(null);
   const router = useRouter();
-
-  const demoEmail = "mahtabazmaeen7@gmail.com";
-  const demoPassword = "khujodemo123";
 
   const getErrorMessage = (err: unknown) => {
     if (typeof err === "object" && err !== null && "errors" in err) {
@@ -56,15 +52,15 @@ export default function CustomSignIn() {
     }
   };
 
-  const handleCopy = async (value: string, field: "email" | "password") => {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopiedField(field);
-      setTimeout(() => setCopiedField(null), 1200);
-    } catch {
-      setError("Copy failed. Please copy manually.");
-    }
-  };
+  // const handleCopy = async (value: string, field: "email" | "password") => {
+  //   try {
+  //     await navigator.clipboard.writeText(value);
+  //     setCopiedField(field);
+  //     setTimeout(() => setCopiedField(null), 1200);
+  //   } catch {
+  //     setError("Copy failed. Please copy manually.");
+  //   }
+  // };
 
   return (
     <div className=" flex items-center justify-center ">
