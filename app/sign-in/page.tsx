@@ -114,7 +114,7 @@ export default function CustomSignIn() {
           </button>
         </form>
 
-        <div className="mt-6 rounded-2xl border border-[#096455]/25 bg-[#096455]/8 p-4">
+        {/* <div className="mt-6 rounded-2xl border border-[#096455]/25 bg-[#096455]/8 p-4">
           <p className="text-sm font-semibold text-[#096455]">Development Demo Credentials</p>
           <p className="mt-1 text-xs text-[#0E6F60]">Click copy and paste into the sign-in form.</p>
 
@@ -147,7 +147,7 @@ export default function CustomSignIn() {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
 
          
       </div>
