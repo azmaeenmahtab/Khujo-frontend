@@ -107,7 +107,10 @@ const ReportDevicePage = () => {
         `${apiBase.replace(/\/$/, "")}/report/submit`,
         {
           method: "POST",
-          headers: { Authorization: `Bearer ${token}` },
+          headers: 
+          { 
+            Authorization: `Bearer ${token}` 
+          },
           body: payload,
         }
       );
