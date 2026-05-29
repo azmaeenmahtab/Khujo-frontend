@@ -3,7 +3,9 @@ import heroImage from "@/public/KHUJO.png"
 import Link from "next/dist/client/link";
 import doneMark from "@/public/Frame.png"
 
-const SearchReportCompletionPage = () => {
+
+
+const SearchReportCompletionPage = (   ) => {
     return <div className="min-h-screen">
         <div className="mx-auto  flex flex-col items-center pt-10 pb-10 " >
               <Image 

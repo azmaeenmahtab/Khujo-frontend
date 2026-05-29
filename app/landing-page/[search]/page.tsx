@@ -1,11 +1,60 @@
+"use client";
+
 import Image from "next/image";
 import GreenButton from "@/components/GreenButton";
 import heroImage from "@/public/KHUJO.png"
-import Link from "next/dist/client/link";
+import Link from "next/link";
 import logo from "@/public/logo.png"
 import FoundSection from "@/components/FoundSection";
+import { useParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import  {dataType}  from "@/lib/types"
 
 const SearchPage = () => {
+    const { search } = useParams() ;
+    const [searchResultFound, setSearchResultFound] = useState(false);    
+    const [fetcheddata, setfetchedData] = useState<dataType | null>(null);
+    const hasFetchedRef = useRef(false);
+
+
+
+    console.log( search);
+
+    useEffect(() => {
+        if (!search || hasFetchedRef.current) {
+            return;
+        }
+
+        hasFetchedRef.current = true;
+
+        const checkImei = async () => {
+            try {
+                const result = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_BASE_URL}/check-imei/${search}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                if (!result.ok) {
+                    setSearchResultFound(false);
+                    return;
+                }
+
+            const data = await result.json();
+            setfetchedData(data.data);
+
+                 setSearchResultFound(true);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        void checkImei();
+    }, [search]);
+
+
+
     return (
         <>
             {/* navbar */}
@@ -43,24 +92,26 @@ const SearchPage = () => {
             {/* search bar */}
             <div className="w-full flex items-center justify-center bg-transparent pb-[60px] px-4">
                 <div className="w-full max-w-[760px] flex items-center justify-center gap-3">
-                <input
-                    type="text"
-                    placeholder="Search with IMEI"
-                    style={{
-                        padding: "0.5rem 1rem",
-                        borderRadius: "16px",
-                        border: "1px",
-                        width: "100%",
-                        boxSizing: "border-box"
-                    }}
-                    className="text-black flex-1 bg-white shadow-2xl"
-                />
-                <GreenButton text="Search" height={10} width={20}></GreenButton>
+                    <input
+                        type="text"
+                        placeholder="Search with IMEI"
+                        defaultValue={search || ""}
+                        style={{
+                            padding: "0.5rem 1rem",
+                            borderRadius: "16px",
+                            border: "1px",
+                            width: "100%",
+                            boxSizing: "border-box"
+                        }}
+                        className="text-black flex-1 bg-white shadow-2xl"
+                    />
+                    <GreenButton text="Search" height={10} width={20}></GreenButton>
                 </div>
             </div>
 
 
             {/* if not found component */}
+            {!searchResultFound && (
             <div className="w-full px-4 pb-16 flex justify-center ">
                 <div className="w-full max-w-[760px] rounded-3xl overflow-hidden border border-[#cfe5df] shadow-[0_16px_40px_rgba(9,100,85,0.14)] bg-[#D3E7E4]">
                     <div className="bg-[#096455] px-6 py-7 text-center text-white border-b rounded-b-3xl">
@@ -98,12 +149,13 @@ const SearchPage = () => {
                     </div>
                 </div>
             </div>
+            )}
 
 
             {/* if found component */}
-            <div>
-                <FoundSection />
-            </div>
+
+            {searchResultFound && <FoundSection resultdata={fetcheddata} />}
+             
         </>
     )
 }

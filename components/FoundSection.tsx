@@ -1,6 +1,18 @@
 import Link from "next/link";
+import {dataType} from "@/lib/types"
 
-const FoundSection = () => {
+
+interface FoundSectionProps {
+  resultdata?: dataType | null;
+}
+
+const FoundSection = ({ resultdata }: FoundSectionProps) => {
+  const mobileData = resultdata;
+
+  if (!mobileData) {
+    return null;
+  }
+
   return (
     <div className="max-w-[1000px] mx-auto my-5 mb-20 px-4 md:px-0">
 
@@ -14,24 +26,24 @@ const FoundSection = () => {
 
           <div className="px-14 py-10 text-[#075f52] grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="space-y-3 text-xl leading-tight text-center md:text-left">
-              <p><span className="font-bold">Device Name:</span> Samsung Galaxy S24</p>
-              <p><span className="font-bold">Original Owner:</span> Shakibul Alam</p>
-              <p><span className="font-bold">Status:</span> Verified</p>
-              <p><span className="font-bold">Stolen Date:</span> November 03, 2025</p>
-              <p><span className="font-bold">Reported Date:</span> November 04, 2025</p>
+              <p><span className="font-bold">Device Name:</span> {mobileData.phone_model}</p>
+              <p><span className="font-bold">Original Owner:</span> {mobileData.ownerName}</p>
+              <p><span className="font-bold">Status:</span> {mobileData.status}</p>
+              <p><span className="font-bold">Stolen Date:</span> {mobileData.stolenDate}</p>
+              <p><span className="font-bold">Reported Date:</span> {mobileData.reportedDate}</p>
             </div>
 
             <div className="space-y-4 text-center text-xl leading-tight">
               <div>
                 <p className="font-bold">IMEI Number</p>
-                <p>526697614147252</p>
+                <p>{mobileData.imei ?? "-"}</p>
               </div>
 
               <div>
                 <p className="font-bold">Stolen From</p>
-                <p>Rokeya Ahsan College</p>
-                <p>Konapara, Demra</p>
-                <p>Dhaka</p>
+                <p>{mobileData.stolenFrom?.place ?? "-"}</p>
+                <p>{mobileData.stolenFrom?.area ?? "-"}</p>
+                <p>{mobileData.stolenFrom?.city ?? "-"}</p>
               </div>
             </div>
           </div>

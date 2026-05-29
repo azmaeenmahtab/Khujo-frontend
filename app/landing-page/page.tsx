@@ -7,11 +7,22 @@ import Card from "@/components/Card";
 import Navbar from "@/components/Navbar";
 import heroImage from "@/public/KHUJO.png"
 import { useRouter } from "next/navigation";
+import {useState} from "react";
 
 
 
 export default function Home() {
   const router = useRouter();
+  const [searchedImei, setSearchedImei] = useState("");
+
+
+  const handleSearch = async () => {
+
+    router.push(`/landing-page/${searchedImei}`);
+
+    
+  }
+
 
   return (
     <div>
@@ -30,6 +41,10 @@ export default function Home() {
       <div className=" flex flex-col gap-5 items-center bg-transparent pb-[120px]">
           <input
             type="text "
+            value={searchedImei}
+            onChange={(e) => 
+              setSearchedImei(e.target.value)
+            }
             placeholder="Search with IMEI"
             style={{
               padding: "0.5rem 1rem",
@@ -59,9 +74,7 @@ export default function Home() {
             text="Search"
             height={20}
             width={20}
-            onClick={() => {
-              router.push("/landing-page/search");
-            }}
+            onClick={handleSearch}
           ></GreenButton>
       </div>
             {/* hero section */}
