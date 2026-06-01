@@ -16,6 +16,7 @@ export default function Home() {
   const [searchedImei, setSearchedImei] = useState("");
 
 
+
   const handleSearch = async () => {
 
     router.push(`/landing-page/${searchedImei}`);

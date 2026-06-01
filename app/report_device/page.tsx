@@ -103,12 +103,14 @@ const ReportDevicePage = () => {
 
     setIsSubmitting(true);
     try {
+      console.log("token ", token);
       const response = await fetch(
         `${apiBase.replace(/\/$/, "")}/report/submit`,
         {
           method: "POST",
           headers: 
           { 
+            
             Authorization: `Bearer ${token}` 
           },
           body: payload,
